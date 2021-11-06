@@ -11,6 +11,12 @@ pipeline {
                 echo "${NOME}"
             }
         }
+        stage('upload') {
+            steps {
+                echo 'upload..'
+         
+            }
+        }
         stage('Test') {
             steps {
                 echo 'Testing..'
