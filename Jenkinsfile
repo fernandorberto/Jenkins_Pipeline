@@ -1,5 +1,3 @@
-##New Pipeline
-
 pipeline {
     agent any
     environment {
