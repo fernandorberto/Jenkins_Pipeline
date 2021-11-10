@@ -46,4 +46,3 @@ pipeline {
                 echo 'Serei executado apenas quando a pipeline fechar com erro'
             }
         }
-}
