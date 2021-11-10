@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    environment {
-        NOME = 'Vinicius'
-        SOBRENOME = 'Cavalcanti'
     }
     stages {
         stage('Distro Inf') {
@@ -34,7 +31,7 @@ pipeline {
         stage('Consolidando e gerando relatorio') {
             steps {
                 echo 'Gerando relatorio....'
-                sh 'cat *.txt > assessment.txt'
+                sh 'cat *.txt | grep -v "assessment" > assessment.txt'
             }
         }
     }
