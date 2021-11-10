@@ -5,10 +5,10 @@ pipeline {
         SOBRENOME = 'Cavalcanti'
     }
     stages {
-        stage('Build') {
+        stage('Distro Inf') {
             steps {
-                echo 'Building..'
-                echo "${NOME}"
+                echo 'Coletando as informações da Distro'
+                sh 'cat /etc/*-release >> assessment.txt'
             }
         }
         stage('upload') {
