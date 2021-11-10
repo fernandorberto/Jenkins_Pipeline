@@ -1,6 +1,5 @@
 pipeline {
     agent any
-    }
     stages {
         stage('Distro Inf') {
             steps {
@@ -46,3 +45,4 @@ pipeline {
                 echo 'Serei executado apenas quando a pipeline fechar com erro'
             }
         }
+}
