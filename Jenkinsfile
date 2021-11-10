@@ -8,7 +8,7 @@ pipeline {
         stage('Distro Inf') {
             steps {
                 echo 'Coletando as informações da Distro'
-                sh 'cat /etc/*-release >> assessment.txt'
+                sh 'cat /etc/*-release' >> assessment.txt
             }
         }
         stage('upload') {
