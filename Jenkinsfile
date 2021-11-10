@@ -7,31 +7,34 @@ pipeline {
     stages {
         stage('Distro Inf') {
             steps {
-                echo 'Coletando as informações da Distro...'
-                sh 'cat /etc/*-release > distro.txt'
+                echo 'Gerando as informações da Distro...'
+                sh 'echo "Info Distr:\n" > distro.txt'
+                sh 'cat /etc/*-release >> distro.txt'
             }
         }
         stage('Kernel Info') {
             steps {
-                echo 'Coletando as informações do Kernel'
-                sh 'uname -a > kernel.txt'
+                echo 'Gerando as informações do Kernel....'
+                sh 'echo "Info Kernel:\n" > kernel.txt'
+                sh 'uname -a >> kernel.txt'
             }
         }
         stage('Users Info') {
             steps {
-                echo 'Coletando as infomações dos usuarios..'
+                echo 'Gerando as infomações dos usuarios....'
                 sh 'cat /etc/passwd | cut -d: -f1 > users.txt'
             }
         }
-        stage('Juntando') {
+        stage('Package Info') {
             steps {
-                echo 'Jutando relatorios'
-                sh 'cat *.txt > asses.txt '
+                echo 'Gerando as informações de pacotes instalados....'
+                sh 'dpkg -l > packs.txt '
             }
         }
-        stage('Deploy') {
+        stage('Consolidando e gerando relatorio') {
             steps {
-                echo 'Deploying....'
+                echo 'Gerando relatorio....'
+                sh 'cat *.txt > assessment.txt'
             }
         }
     }
@@ -40,7 +43,7 @@ pipeline {
                 echo 'Sempre serei executado'
             }
             success {
-                echo 'Serei executado apenas quando a pipeline fechar com sucesso'
+                echo 'Compilação finalizada com sucesso.'
             }
             failure {
                 echo 'Serei executado apenas quando a pipeline fechar com erro'
