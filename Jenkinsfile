@@ -31,6 +31,9 @@ pipeline {
             steps {
                 echo 'Gerando relatorio....'
                 sh 'cat *.txt | grep -v "assessment" > assessment.txt'
+                sh 'git add assessment.txt'
+                sh 'git commit -m "Gerando arquivo de assessment.txt'
+                sh 'git push origin main'
             }
         }
     }
@@ -40,6 +43,7 @@ pipeline {
             }
             success {
                 echo 'Compilação finalizada com sucesso.'
+                cleanWs()
             }
             failure {
                 echo 'Serei executado apenas quando a pipeline fechar com erro'
