@@ -8,19 +8,20 @@ pipeline {
         stage('Distro Inf') {
             steps {
                 echo 'Coletando as informações da Distro'
-                sh 'cat /etc/*-release' >> assessment.txt
+                sh 'cat /etc/*-release > distro.txt'
             }
         }
-        stage('upload') {
+        stage('Kernel Info') {
             steps {
-                echo 'upload..'
-         
+                echo 'Coletando as informações do Kernel'
+                sh ''
+                sh 'cat /etc/*-release > kernel.txt'
             }
         }
-        stage('Test') {
+        stage('Juntando') {
             steps {
                 echo 'Testing..'
-                sh 'echo $SOBRENOME'
+                sh 'kernel.txt >> distro.txt'
                 sh 'pwd'
                 sh 'ls -la'
             }
