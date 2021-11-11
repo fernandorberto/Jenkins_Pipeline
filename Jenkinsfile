@@ -36,9 +36,9 @@ pipeline {
         stage('Realizando Push para o GIT') {
             steps {
                 sshagent(['fernandorberto']) {
-                sh 'git add .'
-                sh 'git commit -m "Teste"'    
-                sh "git Push Origin master"
+                sh 'mkdir /home/ec2-user/github'
+                sh 'cd /home/ec2-user/github'    
+                sh "git clone git@github.com:fernandorberto/Jenkins_Pipeline.git"
 }
             }
         }
