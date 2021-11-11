@@ -38,7 +38,7 @@ pipeline {
                 sh 'mkdir /home/ec2-user/github'
                 sh 'cd /home/ec2-user/github'    
                 sh "git clone git@github.com:fernandorberto/Jenkins_Pipeline.git"
-}
+        }
             }
         }
     }
@@ -54,4 +54,3 @@ pipeline {
                 echo 'Serei executado apenas quando a pipeline fechar com erro'
             }
         }
-}
