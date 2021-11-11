@@ -35,13 +35,14 @@ pipeline {
         }
         stage('Realizando Push para o GIT') {
             steps {
-                sh 'mkdir /var/tmp/github'
+                sh 'cd /var/tmp/'
                 sh 'git clone git@github.com:fernandorberto/assessment-job.git'
-                sh 'cp /var/jenkins_home/workspace/scripted-pipeline/assessment.txt /var/tmp/github/'
-                echo 'git add assessment.txt'  
+                sh 'cd /var/tmp/assessment-job/'
+                sh 'cp /var/jenkins_home/workspace/scripted-pipeline/assessment.txt /var/tmp/assessment-job/'
+                sh 'git add assessment.txt'  
                 sh 'git commit -m "Input arquivo assessment"'
                 sh 'git push origin main'
-                echo 'Arquivo gerado no repositorio git@github.com:fernandorberto/assessment-job.git'
+                echo 'Arquivo assessment.txt gerado no repositorio git@github.com:fernandorberto/assessment-job.git'
                 
         }
             }
@@ -56,6 +57,6 @@ pipeline {
                 cleanWs()
             }
             failure {
-                echo 'Serei executado apenas quando a pipeline fechar com erro'
+                echo 'Pipeline de geração de arquivo assessment não rodou corretamente'
             }
         }
