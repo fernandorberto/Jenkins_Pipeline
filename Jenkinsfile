@@ -35,8 +35,8 @@ pipeline {
         }
         stage('Realizando Push para o GIT') {
             steps {
-                sh 'mkdir /var/github/'
-                sh 'cd /var/github/'    
+                sh 'mkdir /var/tmp/github/'
+                sh 'cd /var/tmp/github/'    
                 sh "git clone git@github.com:fernandorberto/Jenkins_Pipeline.git"
         }
             }
