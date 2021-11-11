@@ -1,6 +1,7 @@
 pipeline {
     agent any
     stages {
+        cleanWs()
         stage('Distro Inf') {
             steps {
                 echo 'Gerando as informações da Distro...'
@@ -54,7 +55,6 @@ pipeline {
             }
             success {
                 echo 'Compilação finalizada com sucesso.'
-                cleanWs()
             }
             failure {
                 echo 'Pipeline de geração de arquivo assessment não rodou corretamente'
