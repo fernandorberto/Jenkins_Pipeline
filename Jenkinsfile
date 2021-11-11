@@ -35,7 +35,6 @@ pipeline {
         }
         stage('Realizando Push para o GIT') {
             steps {
-                sshagent(['fernandorberto']) {
                 sh 'mkdir /home/ec2-user/github'
                 sh 'cd /home/ec2-user/github'    
                 sh "git clone git@github.com:fernandorberto/Jenkins_Pipeline.git"
