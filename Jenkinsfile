@@ -31,9 +31,15 @@ pipeline {
             steps {
                 echo 'Gerando relatorio....'
                 sh 'cat *.txt | grep -v "assessment" > assessment.txt'
+            }
+        }
+        stage('Realizando Push para o GIT') {
+            steps {
+                sshagent(['fernandorberto']) {
                 sh 'git add .'
-                sh 'git commit -m "Gerando arquivo de assessment.txt"'
-                sh 'git push origin main'
+                sh 'git commit -m "Teste"'    
+                sh "git Push Origin master"
+}
             }
         }
     }
