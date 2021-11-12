@@ -43,6 +43,7 @@ pipeline {
             steps {
           sh script:'''
           #!/bin/bash
+          rm -rf /var/tmp/git/
           mkdir /var/tmp/git/
           cd /var/tmp/git
           git clone git@github.com:fernandorberto/assessment-job.git
