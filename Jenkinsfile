@@ -36,6 +36,7 @@ pipeline {
             steps {
                 echo 'Gerando relatorio....'
                 sh 'cat *.txt | grep -v "assessment" > assessment.txt'
+                sh 'date >> assessment.txt'
             }
         }
         stage('Realizando Push para o GIT') {
