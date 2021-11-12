@@ -1,7 +1,11 @@
 pipeline {
     agent any
+     stage('CleanWorkspace') {
+            steps {
+                cleanWs()
+            }
+     }
     stages {
-        cleanWs()
         stage('Distro Inf') {
             steps {
                 echo 'Gerando as informações da Distro...'
@@ -60,3 +64,5 @@ pipeline {
                 echo 'Pipeline de geração de arquivo assessment não rodou corretamente'
             }
         }
+
+
