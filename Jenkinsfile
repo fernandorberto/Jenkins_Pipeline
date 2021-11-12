@@ -57,7 +57,13 @@ pipeline {
         '''
         }
             }
-        }
+
+        stage('Relatrio finalizado') {
+            steps {
+                 echo 'Relatorio criado e enviado ao repositorio'
+                    }
+                         }
+        }   
     }
     post {
         always {
