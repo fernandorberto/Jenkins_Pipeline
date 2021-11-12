@@ -40,11 +40,10 @@ pipeline {
         }
         stage('Realizando Push para o GIT') {
             steps {
-                sh 'cd /var/jenkins_home/teste/'
                 sh 'git clone git@github.com:fernandorberto/assessment-job.git'
                 sh 'sleep 4'
-                sh 'cd /var/jenkins_home/teste/assessment-job/'
-                sh 'cp /var/jenkins_home/workspace/scripted-pipeline/assessment.txt /var/jenkins_home/teste/'
+                sh 'cd assessment-job/'
+                sh 'cp /var/jenkins_home/workspace/scripted-pipeline/assessment.txt /assessment-job '
                 sh 'git add assessment.txt'  
                 sh 'git commit -m "Input arquivo assessment"'
                 sh 'git push origin main'
