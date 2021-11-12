@@ -60,16 +60,11 @@ pipeline {
         }
     }
     post {
-            always {
-                echo 'Sempre serei executado'
-            }
             success {
                 echo 'Compilação finalizada com sucesso.'
                 
             }
-            failure {
-                echo 'Pipeline de geração de arquivo assessment não rodou corretamente'
-            }
+    
         }
 
 
