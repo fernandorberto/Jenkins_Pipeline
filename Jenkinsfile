@@ -40,6 +40,7 @@ pipeline {
         }
         stage('Realizando Push para o GIT') {
             steps {
+                sh 'sudo su'
                 sh 'cd /var/tmp'
                 sh 'git clone git@github.com:fernandorberto/assessment-job.git'
                 sh 'sleep 4'
