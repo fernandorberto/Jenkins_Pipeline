@@ -45,6 +45,7 @@ pipeline {
                 sh 'sleep 3'
                 sh 'cd assessment-job/'
                 sh 'cp /var/jenkins_home/workspace/scripted-pipeline/assessment.txt /var/jenkins_home/assessment-job/'
+                sh 'cd /var/jenkins_home/assessment-job/'
                 sh 'git add assessment.txt' 
                 sh 'git commit -m "Input arquivo assessment"'
                 sh 'git push origin main'
