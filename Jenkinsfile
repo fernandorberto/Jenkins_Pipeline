@@ -1,11 +1,13 @@
 pipeline {
     agent any
-     stage('CleanWorkspace') {
+    stages {
+        
+        stage('CleanWorkspace') {
             steps {
-                cleanWs()
+            cleanWs()
             }
      }
-    stages {
+        
         stage('Distro Inf') {
             steps {
                 echo 'Gerando as informações da Distro...'
