@@ -37,6 +37,7 @@ pipeline {
             steps {
                 sh 'cd /var/tmp'
                 sh 'git clone git@github.com:fernandorberto/assessment-job.git'
+                sh 'sleep 4'
                 sh 'cd /var/tmp/assessment-job'
                 sh 'cp /var/jenkins_home/workspace/scripted-pipeline/assessment.txt /var/tmp/assessment-job/'
                 sh 'git add assessment.txt'  
