@@ -40,15 +40,15 @@ pipeline {
         }
         stage('Realizando Push para o GIT') {
             steps {
+                sh 'rm -rf assessment-job'
                 sh 'git clone git@github.com:fernandorberto/assessment-job.git'
                 sh 'sleep 3'
                 sh 'cd assessment-job/'
-                sh 'cp /var/jenkins_home/workspace/scripted-pipeline/assessment.txt assessment-job/ '
-                sh 'git add assessment.txt'  
+                sh 'cp /var/jenkins_home/workspace/scripted-pipeline/assessment.txt/ /var/jenkins_home/assessment-job/'
+                sh 'git add assessment.txt' 
                 sh 'git commit -m "Input arquivo assessment"'
                 sh 'git push origin main'
-                echo 'Arquivo assessment.txt gerado no repositorio git@github.com:fernandorberto/assessment-job.git'
-                
+                echo 'Arquivo assessment.txt gerado no repositorio git@github.com:fernandorberto/assessment-job.git'              
         }
             }
         }
